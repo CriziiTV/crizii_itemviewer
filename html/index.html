@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wild Wild West Roleplay</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <div class="book-container" style="display:none;">
+        <div class="header">
+          <h1>Wild Wild West Roleplay</h1>
+          <div class="header-right">
+            <img src="icon.png" alt="Server Logo" class="server-logo">
+            <button id="closeBtn" title="Schließen">✖</button>
+          </div>
+        </div>
+
+        <div class="controls">
+          <input type="text" id="searchInput" placeholder="Items suchen..." />
+          <select id="typeFilter"><option value="all">Alle Typen</option></select>
+          <label for="imgSizeRange"></label>
+          <input type="range" id="imgSizeRange" min="100" max="190" value="100" step="10" />
+          <span id="imgSizeLabel"></span>
+        </div>
+
+        <div id="itemsGrid" class="items-grid"></div>
+        
+        <!-- Modal für Item-Editierung -->
+        <div id="editItemModal" class="modal" style="display:none;">
+          <div class="modal-content">
+            <span class="close-modal" id="closeEditModal">&times;</span>
+            <h2>Item bearbeiten</h2>
+            <form id="editItemForm">
+              <label>Item-Name (System):<br><input type="text" id="editItem_item" name="item" readonly></label><br>
+              <label>Anzeigename:<br><input type="text" id="editItem_label" name="label"></label><br>
+              <label>Beschreibung:<br><textarea id="editItem_description" name="description"></textarea></label><br>
+              <label>Gewicht:<br><input type="number" id="editItem_weight" name="weight" step="0.01"></label><br>
+              <label>Typ:<br><input type="text" id="editItem_type" name="type"></label><br>
+              <label>Einzigartig:<br><input type="checkbox" id="editItem_unique" name="unique"></label><br>
+              <label>Benutzbar:<br><input type="checkbox" id="editItem_useable" name="useable"></label><br>
+              <label>Haltbarkeit:<br><input type="text" id="editItem_decay" name="decay"></label><br>
+              <label>Wird beim Benutzen entfernt:<br><input type="checkbox" id="editItem_delete" name="delete"></label><br>
+              <label>Schließt beim Benutzen:<br><input type="checkbox" id="editItem_shouldClose" name="shouldClose"></label><br>
+              <button type="submit">Speichern</button>
+            </form>
+            <div id="editItemError" style="color:red;display:none;"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
